@@ -17,6 +17,13 @@ public class MainActivity extends Activity
         setContentView(R.layout.main);
 		
 		wv = findViewById(R.id.mainWebView);
+		wv.setWebViewClient(new WebViewClient() {
+			
+			@Override
+			public void onReceivedHttpError(WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
+				Toast.makeText(MainActivity.this, "Error: " + errorResponse.getStatusCode(), Toast.LENGTH_SHORT).show();
+			}
+		});
 		wv.getSettings().setJavaScriptEnabled(true);
 		wv.loadUrl("http://localhost:3000");
     }
