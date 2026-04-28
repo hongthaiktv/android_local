@@ -21,6 +21,7 @@ public class MainActivity extends Activity
 			
 			@Override
 			public void onReceivedHttpError(WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
+				super.onReceivedHttpError(view, request, errorResponse);
 				Toast.makeText(MainActivity.this, "Error: " + errorResponse.getStatusCode(), Toast.LENGTH_SHORT).show();
 			}
 		});
